@@ -1,0 +1,24 @@
+{
+"StreamOperators":[
+ 	{"Device":"Container",
+ 	"OP_ID":"VM_1",
+	"Operation":[
+		{
+		"Type":"Deploy"}, 
+		{"Operator":"http://saleh03.cloudapp.net:8000/jars/spark-mqtt-1.0-SNAPSHOT-jar-with-dependencies.jar"},
+		{"package_name":""},
+		{"Arguments":[
+			{"broker.address":"saleh03.cloudapp.net"},
+			{"broker.port":"1883"},
+			{"subscribe.topic":"demo"},
+			{"main.class":"mqtt.Main"},
+			{"rdd.bachsize":"1"}
+		]
+		}],
+	"data_out":"DB_1"}],
+
+"OperatorPlacement":[
+	{"OP_ID":"VM_1",
+	"PE_ID":"swarm0.cloudapp.net,swarm-1.cloudapp.net,swarm-2.cloudapp.net"}
+]}
+

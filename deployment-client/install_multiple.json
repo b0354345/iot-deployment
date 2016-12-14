@@ -1,0 +1,23 @@
+{
+"StreamOperators":[
+
+	{"Device":"Gateway",
+	"OP_ID":"PI_1",
+	"Operation":[
+		{
+		"Type":"install"}, 
+		{"Operator":"http://10.4.192.41:8000/packages/data_service_kura.dp"},
+		{"package_name":"data_service_kura"},
+		{"Arguments":[
+			{"publish.topic":"demo"},
+			{"publish.rate":"5"},
+            {"publish.qos":"2" }
+		]
+		}],
+	"data_out":"saleh03.cloudapp.net"}
+	],
+	
+"OperatorPlacement":[
+	{"OP_ID":"PI_1",
+	"PE_ID":"gw-28,gw-29,gw-30,gw-31,gw-27"}	
+]}

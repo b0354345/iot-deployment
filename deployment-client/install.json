@@ -1,0 +1,60 @@
+{
+"StreamOperators":[
+
+	{"Device":"Gateway",
+	"OP_ID":"PI_1",
+	"Operation":[
+		{
+		"Type":"install"}, 
+		{"Operator":"http://10.4.192.41:8000/packages/data_service_kura.dp"},
+		{"package_name":"data_service_kura"},
+		{"Arguments":[
+			{"publish.topic":"demo"},
+			{"publish.rate":"5"},
+            {"publish.qos":"2" }
+		]
+		}],
+	"data_out":"saleh03.cloudapp.net"},
+	
+ 	{"Device":"Broker",
+ 	"OP_ID":"BR_1",
+	"Operation":[
+		{
+			"Type":"Launch"}, 
+			{"Operator":"Broker"},
+			{"package_name":""},
+			{"Arguments":[
+				{"type":"mqtt"},
+				{"topic":"temp"}
+			]
+			}],
+	"data_out":"saleh03.cloudapp.net"},
+	
+ 	{"Device":"Container",
+ 	"OP_ID":"VM_1",
+	"Operation":[
+		{
+		"Type":"Deploy"}, 
+		{"Operator":"http://saleh03.cloudapp.net:8000/jars/spark-mqtt-1.0-SNAPSHOT-jar-with-dependencies.jar"},
+		{"package_name":""},
+		{"Arguments":[
+			{"broker.address":"saleh03.cloudapp.net"},
+			{"broker.port":"1883"},
+			{"subscribe.topic":"demo"},
+			{"main.class":"mqtt.Main"},
+			{"rdd.bachsize":"1"}
+		]
+		}],
+	"data_out":"DB_1"}],
+
+"OperatorPlacement":[
+	{"OP_ID":"PI_1",
+	"PE_ID":"gw-28,gw-29,gw-30,gw-31,gw-32"},
+	
+	{"OP_ID":"BR_1",
+	"PE_ID":"ActiveMQ_1"},
+	
+	{"OP_ID":"VM_1",
+	"PE_ID":"swarm0.cloudapp.net,swarm-1.cloudapp.net,swarm-2.cloudapp.net,swarm-3.cloudapp.net,swarm-4.cloudapp.net"}
+]}
+

@@ -1,0 +1,23 @@
+{
+"StreamOperators":[
+
+	{"Device":"Gateway",
+	"OP_ID":"PI_1",
+	"Operation":[
+		{
+		"Type":"get/packages"}, 
+		{"Operator":"http://10.4.192.41:8000/packages/data_service_kura.dp"},
+		{"package_name":"data_service_kura"},
+		{"Arguments":[
+			{"publish.topic":"temp"},
+			{"publish.rate":"5"},
+            {"publish.qos":"2" }
+		]
+		}],
+	"data_out":"BR_1"}],
+	
+"OperatorPlacement":[
+	{"OP_ID":"PI_1",
+	"PE_ID":"dc-01"}
+]
+}

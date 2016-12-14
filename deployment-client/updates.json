@@ -1,0 +1,23 @@
+{
+"StreamOperators":[
+
+	{"Device":"Gateway",
+	"OP_ID":"PI_1",
+	"Operation":[
+		{
+		"Type":"put/configurations/uk.ncl.ac.cs.cdt.kura.DataServiceKura"}, 
+		{"Operator":"http://saleh03.cloudapp.net:8000/packages/data_service_kura.dp"},
+		{"package_name":"data_service_kura"},
+		{"Arguments":[
+			{"publish.topic":"demo"},
+			{"publish.rate":"3"},
+            {"publish.qos":"7" }
+		]
+		}],
+	"data_out":"saleh03.cloudapp.net"}
+	],
+	
+"OperatorPlacement":[
+	{"OP_ID":"PI_1",
+	"PE_ID":"pi2,gw-31"}	
+]}
